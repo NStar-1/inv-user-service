@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.user.userService.ApplicationService;
-import com.user.userService.entity.AppRelease;
+import com.user.userService.entity.Application;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,28 +22,28 @@ public class AppController {
     @Resource
     ApplicationService serviceApplication;
 
-    @GetMapping(value = "/appVersionList")
-    public List<AppRelease> getAppReleases() {
-        return serviceApplication.getAppRelease();
+    @GetMapping(value = "/appList")
+    public List<Application> getAppReleases() {
+        return serviceApplication.getApplications();
     }
 
-    @PostMapping(value = "/createAppVersion")
-    public void createAppRelease(@RequestBody AppRelease appRelease) {
+    @PostMapping(value = "/createApp")
+    public void createAppRelease(@RequestBody Application appRelease) {
         serviceApplication.createAppRelease(appRelease);
     }
 
-    @PutMapping(value = "/updateAppVersion")
-    public void updateAppRelease(@RequestBody AppRelease appRelease) {
+    @PutMapping(value = "/updateApp")
+    public void updateAppRelease(@RequestBody Application appRelease) {
         serviceApplication.updateAppRelease(appRelease);
     }
 
-    @PutMapping(value = "/executeUpdateAppVersion")
-    public void executeUpdateAppRelease(@RequestBody AppRelease appRelease) {
+    @PutMapping(value = "/executeUpdateApp")
+    public void executeUpdateAppRelease(@RequestBody Application appRelease) {
         serviceApplication.executeUpdateAppRelease(appRelease);
     }
 
-    @DeleteMapping(value = "/deleteAppVersion")
-    public void deleteAppRelease(@RequestBody AppRelease appRelease) {
+    @DeleteMapping(value = "/deleteApp")
+    public void deleteAppRelease(@RequestBody Application appRelease) {
         serviceApplication.deleteAppRelease(appRelease);
     }
 }

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import com.user.userService.entity.AppRelease;
+import com.user.userService.entity.Application;
 import com.user.userService.mapper.AppReleaseRowMapper;
 
 import java.util.HashMap;
@@ -20,50 +20,50 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AppReleaseDAOImpl implements AppReleaseDAO {
+public class ApplicationDAOImpl implements ApplicationDAO {
 
     NamedParameterJdbcTemplate template;
 
-    public AppReleaseDAOImpl(NamedParameterJdbcTemplate template) {
+    public ApplicationDAOImpl(NamedParameterJdbcTemplate template) {
         this.template = template;
     }
 
     @Override
-    public List<AppRelease> getAppRelease() {
+    public List<Application> findAll() {
         return template.query("select * from app_version", new AppReleaseRowMapper());
     }
 
     @Override
-    public void createAppRelease(AppRelease appRelease) {
-        final String sql = "insert into application(app_id, app_version , data_release) values(:app_id,:app_version,:data_release)";
+    public void insertApplication(Application application) {
+        final String sql = "insert into application(id, app_version , data_release) values(:id,:app_version,:data_release)";
 
         KeyHolder holder = new GeneratedKeyHolder();
         SqlParameterSource param = new MapSqlParameterSource()
-                .addValue("app_id", appRelease.getAppId())
-                .addValue("app_version", appRelease.getAppVersion())
-                .addValue("data_release", appRelease.getDataRelease());
+                .addValue("id", application.getId())
+                .addValue("app_version", application.getAppVersion())
+                .addValue("data_release", application.getDataRelease());
         template.update(sql, param, holder);
 
     }
 
     @Override
-    public void updateAppRelease(AppRelease appRelease) {
-        final String sql = "update application set app_version=:app_version, data_release=:data_release where app_id=:app_id";
+    public void updateApplication(Application application) {
+        final String sql = "update application set app_version=:app_version, data_release=:data_release where id=:id";
 
         KeyHolder holder = new GeneratedKeyHolder();
         SqlParameterSource param = new MapSqlParameterSource()
-                .addValue("app_id", appRelease.getAppId())
-                .addValue("app_version", appRelease.getAppVersion())
-                .addValue("data_release", appRelease.getDataRelease());
+                .addValue("id", application.getId())
+                .addValue("app_version", application.getAppVersion())
+                .addValue("data_release", application.getDataRelease());
         template.update(sql, param, holder);
     }
 
     @Override
-    public void deleteAppRelease(AppRelease appRelease) {
+    public void executeUpdateApplication(Application application) {
         final String sql = "delete from employee where app_id=:app_id";
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("app_id", appRelease.getAppId());
+        map.put("id", application.getId());
 
         template.execute(sql, map, new PreparedStatementCallback<Object>() {
             @Override
@@ -75,13 +75,13 @@ public class AppReleaseDAOImpl implements AppReleaseDAO {
     }
 
     @Override
-    public void executeUpdateAppRelease(AppRelease appRelease) {
-        final String sql = "update application set app_version=:app_version, data_release=:data_release where app_id=:app_id";
+    public void deleteApplication(Application application) {
+        final String sql = "update application set app_version=:app_version, data_release=:data_release where id=:id";
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("app_id", appRelease.getAppId());
-        map.put("app_version", appRelease.getAppVersion());
-        map.put("data_release", appRelease.getDataRelease());
+        map.put("id", application.getId());
+        map.put("app_version", application.getAppVersion());
+        map.put("data_release", application.getDataRelease());
 
         template.execute(sql, map, new PreparedStatementCallback<Object>() {
             @Override

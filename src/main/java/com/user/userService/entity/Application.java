@@ -7,10 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "application")
-public class AppRelease {
+public class Application {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,20 +17,18 @@ public class AppRelease {
     private int id;
 
     @Column(name = "app_version")
-    private String app_version;
+    private String appVersion;
 
     @Column(name = "data_release")
-    private String data_release;
-    
+    private String dataRelease;
 
-    public AppRelease() {
+    public Application() {
     }
 
-
-    public AppRelease(int id, String app_version, String data_release) {
+    public Application(int id, String appVersion, String dataRelease) {
         this.id = id;
-        this.app_version = app_version;
-        this.data_release = data_release;
+        this.appVersion = appVersion;
+        this.dataRelease = dataRelease;
     }
 
     public int getId() {
@@ -42,20 +39,20 @@ public class AppRelease {
         this.id = id;
     }
 
-    public String getApp_version() {
-        return this.app_version;
+    public String getAppVersion() {
+        return this.appVersion;
     }
 
-    public void setApp_version(String app_version) {
-        this.app_version = app_version;
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
     }
 
-    public String getData_release() {
-        return this.data_release;
+    public String getDataRelease() {
+        return this.dataRelease;
     }
 
-    public void setData_release(String data_release) {
-        this.data_release = data_release;
+    public void setDataRelease(String dataRelease) {
+        this.dataRelease = dataRelease;
     }
 
 }

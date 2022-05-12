@@ -3,8 +3,8 @@ package com.user.userService.service;
 import java.util.List;
 
 import com.user.userService.ApplicationService;
-import com.user.userService.dao.AppReleaseDAO;
-import com.user.userService.entity.AppRelease;
+import com.user.userService.dao.ApplicationDAO;
+import com.user.userService.entity.Application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,36 +14,36 @@ import org.springframework.transaction.annotation.Transactional;
 public class ApplicationServiceImpl implements ApplicationService {
 
     @Autowired
-    private AppReleaseDAO appReleaseDAO;
+    private ApplicationDAO appReleaseDAO;
 
     @Override
     @Transactional
-    public List<AppRelease> getAppRelease() {
+    public List<Application> getAppRelease() {
         
         return appReleaseDAO.getAppRelease();
     }
 
     @Override
     @Transactional
-    public void createAppRelease(AppRelease appRelease) {
+    public void createAppRelease(Application appRelease) {
         
         appReleaseDAO.createAppRelease(appRelease);
     }
 
     @Override
-    public void updateAppRelease(AppRelease appRelease) {
+    public void updateAppRelease(Application appRelease) {
         
         appReleaseDAO.updateAppRelease(appRelease);
     }
 
     @Override
-    public void executeUpdateAppRelease(AppRelease appRelease) {
+    public void executeUpdateAppRelease(Application appRelease) {
         
         appReleaseDAO.executeUpdateAppRelease(appRelease);
     }
 
     @Override
-    public void deleteAppRelease(AppRelease appRelease) {
+    public void deleteAppRelease(Application appRelease) {
         
         appReleaseDAO.deleteAppRelease(appRelease);
         

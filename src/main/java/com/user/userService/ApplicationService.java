@@ -2,20 +2,20 @@ package com.user.userService;
 
 import java.util.List;
 
-import com.user.userService.entity.AppRelease;
+import com.user.userService.entity.Application;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public interface ApplicationService {
 
-	public List<AppRelease> getAppRelease();
+	public List<Application> getApplications();
 
-    public void createAppRelease(AppRelease appRelease);
+    public void createAppRelease(Application application);
 
-    public void updateAppRelease(AppRelease appRelease);
+    public void updateAppRelease(Application application);
 
-    public void executeUpdateAppRelease(AppRelease appRelease);
+    public void executeUpdateAppRelease(Application application);
 
-    public void deleteAppRelease(AppRelease appRelease);
+    public void deleteAppRelease(Application application);
 }
