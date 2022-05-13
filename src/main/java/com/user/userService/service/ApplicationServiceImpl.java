@@ -14,38 +14,38 @@ import org.springframework.transaction.annotation.Transactional;
 public class ApplicationServiceImpl implements ApplicationService {
 
     @Autowired
-    private ApplicationDAO appReleaseDAO;
+    private ApplicationDAO applicationDAO;
 
     @Override
     @Transactional
-    public List<Application> getAppRelease() {
+    public List<Application> findAll() {
         
-        return appReleaseDAO.getAppRelease();
+        return applicationDAO.findAll();
     }
 
     @Override
     @Transactional
-    public void createAppRelease(Application appRelease) {
+    public void insertApplication(Application application) {
         
-        appReleaseDAO.createAppRelease(appRelease);
+        applicationDAO.insertApplication(application);
     }
 
     @Override
-    public void updateAppRelease(Application appRelease) {
+    public void updateApplication(Application application) {
         
-        appReleaseDAO.updateAppRelease(appRelease);
+        applicationDAO.updateApplication(application);
     }
 
     @Override
-    public void executeUpdateAppRelease(Application appRelease) {
+    public void executeUpdateApplication(Application application) {
         
-        appReleaseDAO.executeUpdateAppRelease(appRelease);
+        applicationDAO.executeUpdateApplication(application);
     }
 
     @Override
-    public void deleteAppRelease(Application appRelease) {
+    public void deleteApplication(Application application) {
         
-        appReleaseDAO.deleteAppRelease(appRelease);
+        applicationDAO.deleteApplication(application);
         
     }
     

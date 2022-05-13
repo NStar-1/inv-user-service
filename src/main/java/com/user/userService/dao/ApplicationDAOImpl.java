@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.user.userService.entity.Application;
-import com.user.userService.mapper.AppReleaseRowMapper;
+import com.user.userService.mapper.ApplicationRowMapper;
 
 import java.util.HashMap;
 
@@ -30,7 +30,7 @@ public class ApplicationDAOImpl implements ApplicationDAO {
 
     @Override
     public List<Application> findAll() {
-        return template.query("select * from app_version", new AppReleaseRowMapper());
+        return template.query("select * from app_version", new ApplicationRowMapper());
     }
 
     @Override

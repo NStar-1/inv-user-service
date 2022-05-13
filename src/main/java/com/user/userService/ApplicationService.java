@@ -9,13 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public interface ApplicationService {
 
-	public List<Application> getApplications();
+    public List<Application> findAll();
 
-    public void createAppRelease(Application application);
+    public void insertApplication(Application application);
 
-    public void updateAppRelease(Application application);
+    public void updateApplication(Application application);
 
-    public void executeUpdateAppRelease(Application application);
+    public void executeUpdateApplication(Application application);
 
-    public void deleteAppRelease(Application application);
+    public void deleteApplication(Application application);
 }

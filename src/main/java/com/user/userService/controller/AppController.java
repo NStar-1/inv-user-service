@@ -16,34 +16,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/appInfo")
+@RequestMapping("/app-info")
 public class AppController {
 
     @Resource
     ApplicationService serviceApplication;
 
-    @GetMapping(value = "/appList")
+    @GetMapping(value = "/app-list")
     public List<Application> getAppReleases() {
-        return serviceApplication.getApplications();
+        return serviceApplication.findAll();
     }
 
-    @PostMapping(value = "/createApp")
-    public void createAppRelease(@RequestBody Application appRelease) {
-        serviceApplication.createAppRelease(appRelease);
+    @PostMapping(value = "/create-app")
+    public void createAppRelease(@RequestBody Application application) {
+        serviceApplication.insertApplication(application);
     }
 
-    @PutMapping(value = "/updateApp")
-    public void updateAppRelease(@RequestBody Application appRelease) {
-        serviceApplication.updateAppRelease(appRelease);
+    @PutMapping(value = "/update-app")
+    public void updateAppRelease(@RequestBody Application application) {
+        serviceApplication.updateApplication(application);
     }
 
-    @PutMapping(value = "/executeUpdateApp")
-    public void executeUpdateAppRelease(@RequestBody Application appRelease) {
-        serviceApplication.executeUpdateAppRelease(appRelease);
+    @PutMapping(value = "/executeUpdate-app")
+    public void executeUpdateAppRelease(@RequestBody Application application) {
+        serviceApplication.executeUpdateApplication(application);
     }
 
-    @DeleteMapping(value = "/deleteApp")
-    public void deleteAppRelease(@RequestBody Application appRelease) {
-        serviceApplication.deleteAppRelease(appRelease);
+    @DeleteMapping(value = "/delete-app")
+    public void deleteAppRelease(@RequestBody Application application) {
+        serviceApplication.deleteApplication(application);
     }
 }
