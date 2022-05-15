@@ -7,6 +7,9 @@ import javax.annotation.Resource;
 import com.user.userService.ApplicationService;
 import com.user.userService.entity.Application;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +17,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+
 
 @RestController
+@SpringBootApplication
 @RequestMapping("/app-info")
-public class AppController {
+public class AppController extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(AppController.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(AppController.class, args);
+    }
 
     @Resource
     ApplicationService serviceApplication;
