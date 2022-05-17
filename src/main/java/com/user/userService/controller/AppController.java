@@ -21,7 +21,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 
 @RestController
-@SpringBootApplication
+//@SpringBootApplication
 @RequestMapping("/app-info")
 public class AppController extends SpringBootServletInitializer {
 
@@ -30,9 +30,9 @@ public class AppController extends SpringBootServletInitializer {
         return application.sources(AppController.class);
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(AppController.class, args);
-    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(AppController.class, args);
+//    }
 
     @Resource
     ApplicationService serviceApplication;
