@@ -8,21 +8,12 @@ import com.user.userService.entity.ApplicationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-//import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @Service
-public class ApplicationServiceImpl /*extends SpringBootServletInitializer*/ implements ApplicationService {
+public class ApplicationServiceImpl implements ApplicationService {
 
     @Autowired
     private ApplicationDAO applicationDAO;
-
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//        return application.sources(ApplicationServiceImpl.class);
-//    }
 
     @Override
     @Transactional

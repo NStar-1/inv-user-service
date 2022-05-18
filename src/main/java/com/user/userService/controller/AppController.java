@@ -19,7 +19,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 
 @RestController
-//@SpringBootApplication
 @RequestMapping("/app-info")
 public class AppController extends SpringBootServletInitializer {
 
