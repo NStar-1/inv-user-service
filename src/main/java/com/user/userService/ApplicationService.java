@@ -8,12 +8,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@SpringBootApplication
+//@SpringBootApplication
 public interface ApplicationService{
 
-    public static void main(String[] args) {
-        SpringApplication.run(ApplicationService.class, args);
-    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(ApplicationService.class, args);
+//    }
 
     public List<Application> findAll();
 

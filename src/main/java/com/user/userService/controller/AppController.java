@@ -7,8 +7,6 @@ import javax.annotation.Resource;
 import com.user.userService.ApplicationService;
 import com.user.userService.entity.Application;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
