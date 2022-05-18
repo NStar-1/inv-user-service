@@ -2,17 +2,17 @@ package com.user.userService.dao;
 
 import java.util.List;
 
-import com.user.userService.entity.Application;
+import com.user.userService.entity.applicationEntity;
 
 public interface ApplicationDAO {
 
-    public List<Application> findAll();
+    public List<applicationEntity> findAll();
 
-    public void insertApplication(Application application);
+    public void insertApplication(applicationEntity application);
 
-    public void updateApplication(Application application);
+    public void updateApplication(applicationEntity application);
 
-    public void executeUpdateApplication(Application application);
+    public void executeUpdateApplication(applicationEntity application);
 
-    public void deleteApplication(Application application);
+    public void deleteApplication(applicationEntity application);
 }

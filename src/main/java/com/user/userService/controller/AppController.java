@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.user.userService.ApplicationService;
-import com.user.userService.entity.Application;
+import com.user.userService.entity.applicationEntity;
 
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,27 +36,27 @@ public class AppController extends SpringBootServletInitializer {
     ApplicationService serviceApplication;
 
     @GetMapping(value = "/app-list")
-    public List<Application> getAppReleases() {
+    public List<applicationEntity> getAppReleases() {
         return serviceApplication.findAll();
     }
 
     @PostMapping(value = "/create-app")
-    public void createAppRelease(@RequestBody Application application) {
+    public void createAppRelease(@RequestBody applicationEntity application) {
         serviceApplication.insertApplication(application);
     }
 
     @PutMapping(value = "/update-app")
-    public void updateAppRelease(@RequestBody Application application) {
+    public void updateAppRelease(@RequestBody applicationEntity application) {
         serviceApplication.updateApplication(application);
     }
 
     @PutMapping(value = "/executeUpdate-app")
-    public void executeUpdateAppRelease(@RequestBody Application application) {
+    public void executeUpdateAppRelease(@RequestBody applicationEntity application) {
         serviceApplication.executeUpdateApplication(application);
     }
 
     @DeleteMapping(value = "/delete-app")
-    public void deleteAppRelease(@RequestBody Application application) {
+    public void deleteAppRelease(@RequestBody applicationEntity application) {
         serviceApplication.deleteApplication(application);
     }
 }

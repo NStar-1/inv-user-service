@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.user.userService.ApplicationService;
 import com.user.userService.dao.ApplicationDAO;
-import com.user.userService.entity.Application;
+import com.user.userService.entity.applicationEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,32 +27,32 @@ public class ApplicationServiceImpl /*extends SpringBootServletInitializer*/ imp
 
     @Override
     @Transactional
-    public List<Application> findAll() {
+    public List<applicationEntity> findAll() {
         
         return applicationDAO.findAll();
     }
 
     @Override
     @Transactional
-    public void insertApplication(Application application) {
+    public void insertApplication(applicationEntity application) {
         
         applicationDAO.insertApplication(application);
     }
 
     @Override
-    public void updateApplication(Application application) {
+    public void updateApplication(applicationEntity application) {
         
         applicationDAO.updateApplication(application);
     }
 
     @Override
-    public void executeUpdateApplication(Application application) {
+    public void executeUpdateApplication(applicationEntity application) {
         
         applicationDAO.executeUpdateApplication(application);
     }
 
     @Override
-    public void deleteApplication(Application application) {
+    public void deleteApplication(applicationEntity application) {
         
         applicationDAO.deleteApplication(application);
         

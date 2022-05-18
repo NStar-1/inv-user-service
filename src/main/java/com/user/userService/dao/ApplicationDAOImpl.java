@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import com.user.userService.entity.Application;
+import com.user.userService.entity.applicationEntity;
 import com.user.userService.mapper.ApplicationRowMapper;
 
 import java.util.HashMap;
@@ -29,12 +29,12 @@ public class ApplicationDAOImpl implements ApplicationDAO {
     }
 
     @Override
-    public List<Application> findAll() {
+    public List<applicationEntity> findAll() {
         return template.query("select * from app_version", new ApplicationRowMapper());
     }
 
     @Override
-    public void insertApplication(Application application) {
+    public void insertApplication(applicationEntity application) {
         final String sql = "insert into application(id, app_version , data_release) values(:id,:app_version,:data_release)";
 
         KeyHolder holder = new GeneratedKeyHolder();
@@ -47,7 +47,7 @@ public class ApplicationDAOImpl implements ApplicationDAO {
     }
 
     @Override
-    public void updateApplication(Application application) {
+    public void updateApplication(applicationEntity application) {
         final String sql = "update application set app_version=:app_version, data_release=:data_release where id=:id";
 
         KeyHolder holder = new GeneratedKeyHolder();
@@ -59,7 +59,7 @@ public class ApplicationDAOImpl implements ApplicationDAO {
     }
 
     @Override
-    public void executeUpdateApplication(Application application) {
+    public void executeUpdateApplication(applicationEntity application) {
         final String sql = "delete from employee where app_id=:app_id";
 
         Map<String, Object> map = new HashMap<String, Object>();
@@ -75,7 +75,7 @@ public class ApplicationDAOImpl implements ApplicationDAO {
     }
 
     @Override
-    public void deleteApplication(Application application) {
+    public void deleteApplication(applicationEntity application) {
         final String sql = "update application set app_version=:app_version, data_release=:data_release where id=:id";
 
         Map<String, Object> map = new HashMap<String, Object>();
