@@ -1,10 +1,11 @@
-package com.user.userService.dao;
+package com.user.userService.service;
 
 import java.util.List;
 
 import com.user.userService.entity.ApplicationEntity;
 
-public interface ApplicationDAO {
+public interface ApplicationService{
+
 
     public List<ApplicationEntity> findAll();
 

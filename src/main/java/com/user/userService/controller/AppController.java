@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.user.userService.ApplicationService;
-import com.user.userService.entity.applicationEntity;
+import com.user.userService.entity.ApplicationEntity;
+import com.user.userService.service.ApplicationService;
 
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,35 +28,31 @@ public class AppController extends SpringBootServletInitializer {
         return application.sources(AppController.class);
     }
 
-//    public static void main(String[] args) {
-//        SpringApplication.run(AppController.class, args);
-//    }
-
     @Resource
     ApplicationService serviceApplication;
 
     @GetMapping(value = "/app-list")
-    public List<applicationEntity> getAppReleases() {
+    public List<ApplicationEntity> getAppReleases() {
         return serviceApplication.findAll();
     }
 
     @PostMapping(value = "/create-app")
-    public void createAppRelease(@RequestBody applicationEntity application) {
+    public void createAppRelease(@RequestBody ApplicationEntity application) {
         serviceApplication.insertApplication(application);
     }
 
     @PutMapping(value = "/update-app")
-    public void updateAppRelease(@RequestBody applicationEntity application) {
+    public void updateAppRelease(@RequestBody ApplicationEntity application) {
         serviceApplication.updateApplication(application);
     }
 
     @PutMapping(value = "/executeUpdate-app")
-    public void executeUpdateAppRelease(@RequestBody applicationEntity application) {
+    public void executeUpdateAppRelease(@RequestBody ApplicationEntity application) {
         serviceApplication.executeUpdateApplication(application);
     }
 
     @DeleteMapping(value = "/delete-app")
-    public void deleteAppRelease(@RequestBody applicationEntity application) {
+    public void deleteAppRelease(@RequestBody ApplicationEntity application) {
         serviceApplication.deleteApplication(application);
     }
 }

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "application")
-public class applicationEntity {
+public class ApplicationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +22,10 @@ public class applicationEntity {
     @Column(name = "data_release")
     private String dataRelease;
 
-    public applicationEntity() {
+    public ApplicationEntity() {
     }
 
-    public applicationEntity(int id, String appVersion, String dataRelease) {
+    public ApplicationEntity(int id, String appVersion, String dataRelease) {
         this.id = id;
         this.appVersion = appVersion;
         this.dataRelease = dataRelease;
