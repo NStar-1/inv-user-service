@@ -19,7 +19,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 
 @RestController
-@RequestMapping("/app-info")
+//@RequestMapping("/app-info")
 public class AppController extends SpringBootServletInitializer {
 
     @Override

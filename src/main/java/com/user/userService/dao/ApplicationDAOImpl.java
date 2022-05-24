@@ -30,7 +30,7 @@ public class ApplicationDAOImpl implements ApplicationDAO {
 
     @Override
     public List<ApplicationEntity> findAll() {
-        return template.query("select * from app_version", new ApplicationRowMapper());
+        return template.query("select * from application", new ApplicationRowMapper());
     }
 
     @Override
